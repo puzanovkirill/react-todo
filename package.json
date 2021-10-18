@@ -34,5 +34,13 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "prettier": "2.4.1"
+  },
+  "prettier": {
+    "tabWidth": 3,
+    "semi": true,
+    "singleQuote": true
   }
 }
