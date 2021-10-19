@@ -5,7 +5,12 @@
 }
 
 body {
-    background-color: #f1f1f1 ;
+    background-color: #f1f1f1;
+}
+
+button {
+    border: none;
+    border-radius: 3px;
 }
 
 .App {
@@ -14,14 +19,14 @@ body {
 }
 
 .todo-form {
-    margin-top: 2rem;
+    margin-top: 2em;
     width: 100%;
 }
 
 header {
-    font-size: 3rem;
+    font-size: 4rem;
     text-align: center;
-    margin-top: 3rem;
+    margin-top: 2rem;
     color: royalblue;
 }
 
@@ -50,11 +55,9 @@ header {
     display: inline-block;
     margin-left: -6rem;
     background-color: royalblue;
-    border: none;
     height: 2rem;
     color: #fff;
     width: 5rem;
-    border-radius: 3px;
     font-size: 1rem;
     text-align: center;
     cursor: pointer;
@@ -99,4 +102,47 @@ hr {
 
 .filter:focus {
     outline: none;
+}
+
+.todo-list {
+    list-style: none;
+    width: 90%;
+    margin: auto;
+}
+
+.todo-check {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.todo-checkbox {
+    width: 2rem;
+    height: 2rem;
+    border: none;
+    border-radius: 3px;
+    margin-right: 2rem;
+}
+
+.todo {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+}
+
+.todo-delete-btn {
+    width: 6rem;
+    background-color: royalblue;
+    height: 4rem;
+    font-size: 1rem;
+    color: #fff;
+}
+
+.todo-item {
+    font-size: 3rem;
+}
+
+.completed {
+    text-decoration: line-through;
+    color: gray;
 }
