@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Form = ({todos, setTodos, inputText, setInputText}) => {
+const Form = ({setFilter, todos, setTodos, inputText, setInputText}) => {
     const inputTextHandeler = (e) => {
         setInputText(e.target.value);
     }
@@ -11,6 +11,10 @@ const Form = ({todos, setTodos, inputText, setInputText}) => {
         ]);
         setInputText('');
     }
+
+    const filterChangeHandeler = (e) => {
+        setFilter(e.target.value);
+    }
     return (
         <form className="todo-form">
             <div className="input-box">
@@ -20,7 +24,7 @@ const Form = ({todos, setTodos, inputText, setInputText}) => {
             <hr/>
             <div className="select">
                 <div className="filter-header">Filter</div>
-                <select name="todos" className="filter">
+                <select name="todos" className="filter" onChange={filterChangeHandeler}>
                     <option value="All">All</option>
                     <option value="Completed">Completed</option>
                     <option value="Uncompleted">Uncompleted</option>
