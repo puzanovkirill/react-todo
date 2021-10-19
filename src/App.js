@@ -27,8 +27,26 @@ function App() {
     }
 
     useEffect(() => {
+        getLocalTodos();
+    }, [])
+
+    useEffect(() => {
+        saveLocalTodos();
         filterHandeler();
     }, [todos, filter])
+
+    const saveLocalTodos = () => {
+        localStorage.setItem('todos', JSON.stringify(todos));
+    }
+
+    const getLocalTodos = () => {
+        if (localStorage.getItem('todos') === null) {
+            localStorage.setItem('todos', JSON.stringify([]));
+        } else {
+            let todoFromLocalStorage = JSON.parse(localStorage.getItem('todos'));
+            setTodos(todoFromLocalStorage);
+        }
+    }
     return (
         <div className="App">
             <header>My todo list</header>
