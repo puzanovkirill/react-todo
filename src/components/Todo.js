@@ -33,7 +33,7 @@ const Todo = ({ todos, todo, setTodos }) => {
                onChange={completeHandler}
                checked={todo.completed ? true : false}
             />
-            <input
+            <textarea
                type="text"
                className={`todo-edit-input ${
                   isEditing ? 'visible' : 'invisible'
