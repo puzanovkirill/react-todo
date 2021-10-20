@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Cantarell;
 }
 
 body {
@@ -130,6 +131,19 @@ hr {
     margin-top: 2rem;
 }
 
+.btns-wrapper {
+    display: flex;
+}
+
+.todo-edit-btn {
+    width: 6rem;
+    background-color: royalblue;
+    height: 4rem;
+    font-size: 1rem;
+    color: #fff;
+    margin-right: 1rem;
+}
+
 .todo-delete-btn {
     width: 6rem;
     background-color: royalblue;
@@ -142,7 +156,29 @@ hr {
     font-size: 3rem;
 }
 
+.todo-edit-input {
+    position: absolute;
+    margin-left: 4rem;
+    background: transparent;
+    width: 40rem;
+    font-size: 3rem;
+    border: none;
+    border-bottom: 3px solid black;
+}
+
 .completed {
     text-decoration: line-through 3px;
     color: gray;
+}
+
+.invisible {
+    opacity: 0;
+}
+
+.visible {
+    opacity: 1;
+}
+
+.todo-container {
+    margin-bottom: 3rem;
 }
