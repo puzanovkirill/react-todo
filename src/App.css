@@ -166,6 +166,10 @@ hr {
    border-bottom: 3px solid black;
 }
 
+.todo-edit-input:focus{
+   outline: none;
+}
+
 .completed {
    text-decoration: line-through 3px;
    color: gray;
