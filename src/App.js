@@ -9,7 +9,7 @@ function App() {
    const [filter, setFilter] = useState('All');
    const [filteredTodos, setFilteredTodos] = useState([]);
 
-   const filterHandeler = () => {
+   const filterHandler = () => {
       switch (filter) {
          case 'Completed': {
             setFilteredTodos(todos.filter((item) => item.completed === true));
@@ -32,7 +32,7 @@ function App() {
 
    useEffect(() => {
       saveLocalTodos();
-      filterHandeler();
+      filterHandler();
    }, [todos, filter]);
 
    const saveLocalTodos = () => {

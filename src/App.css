@@ -115,6 +115,8 @@ hr {
    display: flex;
    flex-direction: row;
    align-items: center;
+   position: relative;
+   width: 100%;
 }
 
 .todo-checkbox {
@@ -129,6 +131,7 @@ hr {
    display: flex;
    justify-content: space-between;
    margin-top: 2rem;
+   align-items: center;
 }
 
 .btns-wrapper {
@@ -154,16 +157,22 @@ hr {
 
 .todo-item {
    font-size: 3rem;
+   hyphens: auto;
+   word-break: break-all;
+   max-width: 40rem;
 }
 
 .todo-edit-input {
    position: absolute;
    margin-left: 4rem;
    background: transparent;
-   width: 40rem;
+   width: 90%;
    font-size: 3rem;
    border: none;
    border-bottom: 3px solid black;
+   word-break: break-all;
+   overflow: fragments;
+   height: 5rem;
 }
 
 .todo-edit-input:focus{
@@ -177,12 +186,37 @@ hr {
 
 .invisible {
    opacity: 0;
+   z-index: -100;
 }
 
 .visible {
    opacity: 1;
+   z-index: 100;
 }
 
 .todo-container {
    margin-bottom: 3rem;
+}
+
+
+@media (max-width: 768px) {
+   .todo-form{
+      width: 100%;
+   }
+
+   .todo-edit-input{
+      width: 80%;
+      height: auto;
+
+   }
+
+   .input-box{
+      display: block;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+   }
+   .todo-input{
+      width: 100%;
+   }
 }
