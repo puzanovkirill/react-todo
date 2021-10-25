@@ -49,7 +49,7 @@ const Todo = ({ todos, todo, setTodos }) => {
             onClick={() => completeHandler()}
             destructiveCallbackDelay={0}
          >
-            <div className="invisible">complete</div>
+            <div className="invisible off">complete</div>
          </SwipeAction>
       </LeadingActions>
    );
@@ -60,14 +60,14 @@ const Todo = ({ todos, todo, setTodos }) => {
             onClick={() => deleteHandler()}
             destructiveCallbackDelay={0}
          >
-            <div className="invisible">delete</div>
+            <div className="invisible off">delete</div>
          </SwipeAction>
       </TrailingActions>
    );
 
    return (
       <div className="todo">
-         <SwipeableList style={{ width: '100%' }}>
+         <SwipeableList threshold={0.2} style={{ width: '100%' }}>
             <SwipeableListItem
                leadingActions={leadingActions()}
                trailingActions={trailingActions()}
@@ -88,7 +88,11 @@ const Todo = ({ todos, todo, setTodos }) => {
                         isEditing ? 'visible' : 'invisible'
                      }`}
                      defaultValue={`${isEditing ? todo.text : ''}`}
-                     onChange={editHandler}
+                     onChange={(e) => {
+                        editHandler(e);
+                        const tmp = document.querySelector('textarea');
+                        tmp.style.height = `${tmp.scrollHeight}px`;
+                     }}
                      onKeyDown={(e) => {
                         if (e.key === 'Escape') setIsEditing(!isEditing);
                      }}

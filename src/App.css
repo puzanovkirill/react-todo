@@ -1,223 +1,256 @@
 * {
-   margin: 0;
-   padding: 0;
-   box-sizing: border-box;
-   font-family: Cantarell;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Cantarell;
 }
 
 body {
-   background-color: #f1f1f1;
+    background-color: #f1f1f1;
 }
 
 button {
-   border: none;
-   border-radius: 3px;
+    border: none;
+    border-radius: 3px;
 }
 
 .App {
-   max-width: 68rem;
-   margin: 0 auto;
+    max-width: 68rem;
+    margin: 0 auto;
 }
 
 .todo-form {
-   margin-top: 2em;
-   width: 100%;
+    margin-top: 2em;
+    width: 100%;
 }
 
 header {
-   font-size: 4rem;
-   text-align: center;
-   margin-top: 2rem;
-   color: royalblue;
+    font-size: 4rem;
+    text-align: center;
+    margin-top: 2rem;
+    color: royalblue;
 }
 
 .input-box {
-   display: flex;
-   justify-content: center;
-   align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .todo-input {
-   padding-left: 1.5rem;
-   display: inline-block;
-   border: none;
-   border-radius: 3px;
-   height: 3rem;
-   width: 90%;
-   font-size: 1rem;
-   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    padding-left: 1.5rem;
+    display: inline-block;
+    border: none;
+    border-radius: 3px;
+    height: 3rem;
+    width: 90%;
+    font-size: 1rem;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
 .todo-input:focus {
-   outline: none;
+    outline: none;
 }
 
 .todo-button {
-   display: inline-block;
-   margin-left: -6rem;
-   background-color: royalblue;
-   height: 2rem;
-   color: #fff;
-   width: 5rem;
-   font-size: 1rem;
-   text-align: center;
-   cursor: pointer;
-   transition: 0.3s all;
+    display: inline-block;
+    margin-left: -6rem;
+    background-color: royalblue;
+    height: 2rem;
+    color: #fff;
+    width: 5rem;
+    font-size: 1rem;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s all;
 }
 
 .todo-button:hover {
-   background-color: #1c2eff;
+    background-color: #1c2eff;
 }
 
 hr {
-   margin-top: 2rem;
-   background-color: lightgray;
-   border: none;
-   height: 1px;
+    margin-top: 2rem;
+    background-color: lightgray;
+    border: none;
+    height: 1px;
 }
 
 .select {
-   display: flex;
-   flex-direction: row;
-   justify-content: flex-end;
-   align-items: center;
-   margin-top: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 1rem;
 }
 
 .filter-header {
-   margin-right: 1rem;
-   font-size: 1.5rem;
-   color: gray;
+    margin-right: 1rem;
+    font-size: 1.5rem;
+    color: gray;
 }
 
 .filter {
-   font-size: 1rem;
-   width: 8rem;
-   height: 1.5rem;
-   border-radius: 3px;
-   border-color: gray;
-   background-color: #fff;
-   color: gray;
-   cursor: pointer;
+    font-size: 1rem;
+    width: 8rem;
+    height: 1.5rem;
+    border-radius: 3px;
+    border-color: gray;
+    background-color: #fff;
+    color: gray;
+    cursor: pointer;
 }
 
 .filter:focus {
-   outline: none;
+    outline: none;
 }
 
 .todo-list {
-   list-style: none;
-   width: 90%;
-   margin: auto;
+    list-style: none;
+    width: 90%;
+    margin: auto;
+}
+
+.off {
+    display: none;
 }
 
 .todo-check {
-   display: flex;
-   flex-direction: row;
-   align-items: center;
-   position: relative;
-   width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+    width: 100%;
 }
 
 .todo-checkbox {
-   width: 2rem;
-   height: 2rem;
-   border: none;
-   border-radius: 3px;
-   margin-right: 2rem;
+    width: 2rem;
+    height: 2rem;
+    border: none;
+    border-radius: 3px;
+    margin-right: 2rem;
 }
 
 .todo {
-   display: flex;
-   justify-content: space-between;
-   margin-top: 2rem;
-   align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+    align-items: center;
 }
 
-.btns-wrapper {
-   display: flex;
-}
 
 .todo-edit-btn {
-   width: 6rem;
-   background-color: royalblue;
-   height: 4rem;
-   font-size: 1rem;
-   color: #fff;
-   margin-right: 1rem;
+    width: 6rem;
+    background-color: royalblue;
+    height: 4rem;
+    font-size: 1rem;
+    color: #fff;
+    margin-right: 1rem;
 }
 
 .todo-delete-btn {
-   width: 6rem;
-   background-color: royalblue;
-   height: 4rem;
-   font-size: 1rem;
-   color: #fff;
+    width: 6rem;
+    background-color: royalblue;
+    height: 4rem;
+    font-size: 1rem;
+    color: #fff;
 }
 
 .todo-item {
-   font-size: 3rem;
-   hyphens: auto;
-   word-break: break-all;
-   max-width: 40rem;
+    font-size: 3rem;
+    hyphens: auto;
+    word-break: break-all;
+    max-width: 40rem;
 }
 
 .todo-edit-input {
-   position: absolute;
-   background: transparent;
-   width: 90%;
-   font-size: 3rem;
-   border: none;
-   border-bottom: 3px solid black;
-   word-break: break-all;
-   overflow: fragments;
-   height: 5rem;
+    position: absolute;
+    background: transparent;
+    width: 90%;
+    font-size: 3rem;
+    border: none;
+    border-bottom: 3px solid black;
+    word-break: break-all;
+    height: 1.2em;
+    margin-left: 4rem;
 }
 
-.todo-edit-input:focus{
-   outline: none;
+.todo-edit-input:focus {
+    outline: none;
 }
 
 .completed {
-   text-decoration: line-through 3px;
-   color: gray;
+    text-decoration: line-through 3px;
+    color: gray;
 }
 
 .invisible {
-   opacity: 0;
-   z-index: -100;
+    opacity: 0;
+    z-index: -100;
 }
 
 .visible {
-   opacity: 1;
-   z-index: 100;
+    opacity: 1;
+    z-index: 100;
 }
 
 .todo-container {
-   margin-bottom: 3rem;
+    margin-bottom: 3rem;
 }
 
 
 @media (max-width: 768px) {
-   .todo-form{
-      width: 100%;
-   }
+    .todo-form {
+        width: 100%;
+    }
 
-   .todo-edit-input{
-      width: 80%;
+    .todo-item {
+        margin: auto;
+    }
+
+    .todo-edit-input {
+        width: 100%;
+        text-align: center;
+        margin-left: 0;
+    }
+
+    .input-box {
+        display: block;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+
+    .todo-input {
+        width: 100%;
+    }
+}
+
+@media (max-width: 426px) {
+    header {
+        font-size: 3rem;
+    }
+   .select{
+      justify-content: center;
+   }
+   .filter-header{
+      font-size: 2rem;
+   }
+   .filter{
+      font-size: 1.5rem;
       height: auto;
-
+      width: auto;
    }
-
-   .input-box{
-      display: block;
-      margin: 0;
-      padding: 0;
-      width: 100%;
+   .todo{
+      margin-top: 2rem;
    }
-   .todo-input{
-      width: 100%;
+   .todo-item{
+      text-align: center;
    }
 }
-.swipeable-list{
+
+@media (max-width: 376px){
+   .todo-item{
+      font-size: 2.5rem;
+   }
 }
