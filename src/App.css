@@ -164,7 +164,6 @@ hr {
 
 .todo-edit-input {
    position: absolute;
-   margin-left: 4rem;
    background: transparent;
    width: 90%;
    font-size: 3rem;
@@ -219,4 +218,6 @@ hr {
    .todo-input{
       width: 100%;
    }
+}
+.swipeable-list{
 }

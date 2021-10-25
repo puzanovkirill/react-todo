@@ -1,5 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useSwipeable } from 'react-swipeable';
+import {
+   LeadingActions,
+   SwipeableList,
+   SwipeableListItem,
+   SwipeAction,
+   TrailingActions,
+} from 'react-swipeable-list';
 
 const Todo = ({ todos, todo, setTodos }) => {
    const [isEditing, setIsEditing] = useState(false);
@@ -14,7 +21,6 @@ const Todo = ({ todos, todo, setTodos }) => {
    const swipeHandler = useSwipeable({
       onSwipedRight: (e) => deleteHandler(),
       onSwipedLeft: (e) => completeHandler(),
-      onSwiping: (e) => console.log(e),
       ...swipeConfig,
    });
 
@@ -46,49 +52,72 @@ const Todo = ({ todos, todo, setTodos }) => {
    const editHandler = (e) => {
       if (isEditing) {
          todo.text = e.target.value;
-         console.log(setTodos);
       }
       setTodos([...todos]);
    };
 
+   const leadingActions = () => (
+      <LeadingActions>
+         <SwipeAction
+            onClick={() => completeHandler()}
+            destructiveCallbackDelay={0}
+         >
+            <div className="invisible">complete</div>
+         </SwipeAction>
+      </LeadingActions>
+   );
+
+   const trailingActions = () => (
+      <TrailingActions>
+         <SwipeAction
+            onClick={() => deleteHandler()}
+            destructiveCallbackDelay={0}
+         >
+            <div className="invisible">delete</div>
+         </SwipeAction>
+      </TrailingActions>
+   );
+
    return (
       <div className="todo">
-         <div className="todo-check">
-            <input
-               type="checkbox"
-               className="todo-checkbox"
-               onChange={completeHandler}
-               checked={!!todo.completed}
-            />
-            <textarea
-               className={`todo-edit-input ${
-                  isEditing ? 'visible' : 'invisible'
-               }`}
-               defaultValue={`${isEditing ? todo.text : ''}`}
-               onChange={editHandler}
-               onKeyDown={(e) => {
-                  if (e.key === 'Escape') setIsEditing(!isEditing);
-               }}
-               ref={ref}
-            />
-            <li
-               onClick={(e) => {
-                  setIsEditing(!isEditing);
-                  editHandler(e);
-               }}
-               {...swipeHandler}
-               className={`todo-item ${todo.completed ? 'completed' : ''} ${
-                  isEditing ? 'invisible' : 'visible'
-               }`}
+         <SwipeableList style={{ width: '100%' }}>
+            <SwipeableListItem
+               leadingActions={leadingActions()}
+               trailingActions={trailingActions()}
+               blockSwipe={window.innerWidth >= 768}
             >
-               {todo.text}
-            </li>
-         </div>
-         <div className="btn-wrapper">
+               <div className="todo-check">
+                  <textarea
+                     className={`todo-edit-input ${
+                        isEditing ? 'visible' : 'invisible'
+                     }`}
+                     defaultValue={`${isEditing ? todo.text : ''}`}
+                     onChange={editHandler}
+                     onKeyDown={(e) => {
+                        if (e.key === 'Escape') setIsEditing(!isEditing);
+                     }}
+                     ref={ref}
+                  />
+                  <li
+                     onClick={(e) => {
+                        setIsEditing(!isEditing);
+                        editHandler(e);
+                     }}
+                     {...swipeHandler}
+                     className={`todo-item ${
+                        todo.completed ? 'completed' : ''
+                     } ${isEditing ? 'invisible' : 'visible'}`}
+                  >
+                     {todo.text}
+                  </li>
+               </div>
+            </SwipeableListItem>
+         </SwipeableList>
+         {window.innerWidth <= 768 ? null : (
             <button onClick={deleteHandler} className="todo-delete-btn">
                Delete
             </button>
-         </div>
+         )}
       </div>
    );
 };
