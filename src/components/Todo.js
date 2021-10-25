@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useSwipeable } from 'react-swipeable';
 import {
    LeadingActions,
    SwipeableList,
@@ -11,18 +10,6 @@ import {
 const Todo = ({ todos, todo, setTodos }) => {
    const [isEditing, setIsEditing] = useState(false);
    const ref = useRef(null);
-   const swipeConfig = {
-      delta: 20,
-      preventDefaultTouchmoveEvent: false,
-      trackTouch: true,
-      trackMouse: false,
-      rotationAngle: 0,
-   };
-   const swipeHandler = useSwipeable({
-      onSwipedRight: (e) => deleteHandler(),
-      onSwipedLeft: (e) => completeHandler(),
-      ...swipeConfig,
-   });
 
    useEffect(() => {
       if (ref.current) {
@@ -87,6 +74,15 @@ const Todo = ({ todos, todo, setTodos }) => {
                blockSwipe={window.innerWidth >= 768}
             >
                <div className="todo-check">
+                  {window.innerWidth <= 768 ? null : (
+                     <input
+                        type="checkbox"
+                        className="todo-checkbox"
+                        checked={todo.completed}
+                        onChange={() => completeHandler()}
+                     />
+                  )}
+
                   <textarea
                      className={`todo-edit-input ${
                         isEditing ? 'visible' : 'invisible'
@@ -103,7 +99,6 @@ const Todo = ({ todos, todo, setTodos }) => {
                         setIsEditing(!isEditing);
                         editHandler(e);
                      }}
-                     {...swipeHandler}
                      className={`todo-item ${
                         todo.completed ? 'completed' : ''
                      } ${isEditing ? 'invisible' : 'visible'}`}
@@ -113,6 +108,7 @@ const Todo = ({ todos, todo, setTodos }) => {
                </div>
             </SwipeableListItem>
          </SwipeableList>
+
          {window.innerWidth <= 768 ? null : (
             <button onClick={deleteHandler} className="todo-delete-btn">
                Delete
